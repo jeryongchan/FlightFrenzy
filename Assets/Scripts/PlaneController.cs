@@ -29,14 +29,18 @@ public class PlaneController : MonoBehaviour
 
         Vector3 position = transform.position;
         position.x = Mathf.Clamp(
-            position.x + horizontalInput * moveSpeed * Time.deltaTime,
+            position.x + horizontalInput * moveSpeed * PlayArea.WidthScale * Time.deltaTime, // widthscale is so in wider screen it move faster
             PlayArea.LeftLimitX,
             PlayArea.RightLimitX
         );
         transform.position = position;
 
         float targetBankDegrees = -horizontalInput * maxBankDegrees; // negative z banks into the turn
-        currentBankDegrees = Mathf.Lerp(currentBankDegrees, targetBankDegrees, bankSmoothing * Time.deltaTime);
+        currentBankDegrees = Mathf.Lerp(
+            currentBankDegrees,
+            targetBankDegrees,
+            bankSmoothing * Time.deltaTime
+        );
         transform.rotation = Quaternion.Euler(0f, 0f, currentBankDegrees);
     }
 

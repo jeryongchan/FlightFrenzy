@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// spawns rings
 public class RingSpawner : MonoBehaviour
 {
     [SerializeField]
@@ -24,6 +23,13 @@ public class RingSpawner : MonoBehaviour
     float currentColumnX;
     int ringsLeftInColumn;
     float timeUntilNextSpawn;
+
+    void OnEnable()
+    {
+        // Debug.Log("ring spawn enable");
+        ringsLeftInColumn = 0;
+        timeUntilNextSpawn = 0f; // start a fresh column, if not in next round can see some leftover coins
+    }
 
     void Update()
     {

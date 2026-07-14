@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e3adc630befd3449677642f3ab4b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  approachSpeed: 150
+  approachSpeed: 50
   despawnZ: -35
 --- !u!135 &8402866591303048124
 SphereCollider:

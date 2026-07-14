@@ -12,7 +12,7 @@ public class RingController : MonoBehaviour
     void Update()
     {
         Vector3 position = transform.position;
-        position.z -= approachSpeed * Time.deltaTime;
+        position.z -= approachSpeed * GameManager.Instance.WorldSpeed * Time.deltaTime;
         transform.position = position;
 
         transform.rotation = Quaternion.Euler(0f, RingFlipper.AngleY, 0f);

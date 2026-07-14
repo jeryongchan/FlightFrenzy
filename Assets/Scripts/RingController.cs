@@ -15,6 +15,8 @@ public class RingController : MonoBehaviour
         position.z -= approachSpeed * Time.deltaTime;
         transform.position = position;
 
+        transform.rotation = Quaternion.Euler(0f, RingFlipper.AngleY, 0f);
+
         if (position.z < despawnZ)
         {
             Destroy(gameObject); // despawn uncollected rings

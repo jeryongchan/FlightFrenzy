@@ -4,7 +4,13 @@ public class PlaneController : MonoBehaviour
 {
     [SerializeField]
     float moveSpeed = 10f;
-    int score;
+
+    public void ResetPosition()
+    {
+        Vector3 position = transform.position;
+        position.x = 0f;
+        transform.position = position;
+    }
 
     void Update()
     {
@@ -24,7 +30,7 @@ public class PlaneController : MonoBehaviour
         RingController ring = other.GetComponent<RingController>();
         if (ring != null)
         {
-            score++; // to be shown in UI
+            GameManager.Instance.AddScore();
             Destroy(ring.gameObject);
         }
     }
